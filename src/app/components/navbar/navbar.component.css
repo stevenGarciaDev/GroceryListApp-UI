@@ -1,0 +1,22 @@
+nav {
+  align-items: center;
+  border-bottom: 1px solid lightgrey;
+  display: flex;
+  height: 60px;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.list-items {
+  display: flex;
+}
+
+.list-item {
+  margin: 0 10px;
+}
+
+@media screen and (min-width: 500px) {
+  nav {
+    padding: 0 60px;
+  }
+}
