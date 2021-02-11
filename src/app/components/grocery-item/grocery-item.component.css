@@ -1,0 +1,54 @@
+.container {
+  align-items: center;
+  border: 1px solid lightgray;
+  display: flex;
+  height: 60px;
+  justify-content: space-between;
+  padding: 0 5px;
+  width: 100%;
+}
+
+.item-name {
+  font-size: 16px;
+}
+
+.item-actions {
+  display: flex;
+}
+
+.list-action {
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  margin: 0 5px;
+  padding: 5px;
+}
+
+.complete-button {
+  background-color: mediumseagreen;
+}
+
+.remove-button {
+  background-color: crimson;
+}
+
+@media screen and (min-width: 500px) {
+  .item-name {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .container {
+    padding: 0 10px;
+  }
+
+  .item-name {
+    font-size: 22px;
+  }
+
+  .list-action {
+    padding: 5px 10px;
+  }
+}
