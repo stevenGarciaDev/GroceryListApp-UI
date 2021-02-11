@@ -1,0 +1,33 @@
+.grocery-list-page {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.title {
+  text-align: center;
+}
+
+.add-item-container {
+  height: 200px;
+}
+
+@media screen and (min-width: 600px) {
+  .container {
+    width: 60%;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .add-item-container {
+    height: 170px;
+  }
+}
