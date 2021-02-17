@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ListComponent } from './pages/list/list.component';
@@ -10,6 +12,10 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { GroceryItemComponent } from './components/grocery-item/grocery-item.component';
 import { AddItemFormComponent } from './components/add-item-form/add-item-form.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+
+import { AuthService } from './services/auth/auth.service';
+import { GroceryListService } from './services/grocery-list/grocery-list.service';
+import { AuthGuard } from './services/auth-guard/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -24,6 +30,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -39,7 +47,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
       },
       {
         path: 'grocery-list/:userId',
-        component: GroceryItemComponent
+        component: ListComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: '**',
@@ -47,7 +56,12 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
       }
     ]),
   ],
-  providers: [],
+  providers: [
+    HttpClient,
+    AuthService,
+    GroceryListService,
+    AuthGuard,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
