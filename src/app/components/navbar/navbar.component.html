@@ -1,8 +1,20 @@
 <nav>
-  <div>GroceryList Planner</div>
+  <div>Grocery List Planner</div>
 
   <div class="list-items">
-    <div class="list-item">Login</div>
-    <div class="list-item">Sign Up</div>
+    <a routerLink="/grocery-list/2" [hidden]="!isLoggedIn()" class="list-item"
+      >My List</a
+    >
+    <a
+      routerLink="/sign-up"
+      [hidden]="!isLoggedIn()"
+      class="list-item"
+      (click)="authService.logout()"
+      >Logout</a
+    >
+    <a routerLink="/login" [hidden]="isLoggedIn()" class="list-item">Login</a>
+    <a routerLink="/sign-up" [hidden]="isLoggedIn()" class="list-item"
+      >Sign Up</a
+    >
   </div>
 </nav>

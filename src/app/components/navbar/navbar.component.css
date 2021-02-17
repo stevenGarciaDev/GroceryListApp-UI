@@ -12,7 +12,13 @@ nav {
 }
 
 .list-item {
+  color: black;
   margin: 0 10px;
+  text-decoration: none;
+}
+
+.list-item:hover {
+  color: gray;
 }
 
 @media screen and (min-width: 500px) {
