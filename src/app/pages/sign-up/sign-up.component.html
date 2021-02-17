@@ -1,1 +1,54 @@
-<p>sign-up works!</p>
+<div class="container">
+  <form class="form" [formGroup]="signUpForm" (ngSubmit)="signUp()">
+    <h2 class="form-title">Sign Up</h2>
+    <div class="form-error" *ngIf="isDisplayingFormErrors">
+      <div *ngIf=""></div>
+    </div>
+    <div class="form-control">
+      <label>Name</label>
+      <input type="text" name="name" formControlName="name" />
+      <ul
+        *ngIf="name.touched && name.invalid"
+        class="input-error-container"
+      >
+        <li *ngIf="name.errors.required" class="error">
+          Field cannot be empty.
+        </li>
+        <li *ngIf="name.errors.minlength" class="error">
+          Must be at least 2 characters long.
+        </li>
+        <li *ngIf="name.errors.maxlength" class="error">
+          Must be less than 50 characters.
+        </li>
+      </ul>
+    </div>
+    <div class="form-control">
+      <label>Email</label>
+      <input type="email" name="email" formControlName="email" />
+      <ul *ngIf="email.touched && email.invalid" class="input-error-container">
+        <li *ngIf="email.errors.required" class="error">
+          Field cannot be empty.
+        </li>
+        <li *ngIf="email.errors.email" class="error">
+          Must use a valid email address.
+        </li>
+      </ul>
+    </div>
+    <div class="form-control">
+      <label>Password</label>
+      <input type="password" name="password" formControlName="password" />
+      <ul
+        *ngIf="password.touched && password.invalid"
+        class="input-error-container"
+      >
+        <li *ngIf="password.errors.required" class="error">
+          Field cannot be empty.
+        </li>
+        <li *ngIf="password.errors.minlength" class="error">
+          Must be at least 4 characters.
+        </li>
+      </ul>
+    </div>
+    <button class="submit-button">Create Account</button>
+  </form>
+</div>
