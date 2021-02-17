@@ -6,7 +6,7 @@
   justify-content: center;
 }
 
-.login-form {
+.form {
   border: 1px solid grey;
   border-radius: 5px;
   position: relative;
@@ -19,6 +19,20 @@
   text-align: center;
 }
 
+.form-error {
+  color: crimson;
+  text-align: center;
+}
+
+.error {
+  color: crimson;
+}
+
+.input-error-container {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 .form-control {
   display: flex;
   flex-direction: column;
@@ -26,6 +40,7 @@
 }
 
 input {
+  font-size: 20px;
   height: 35px;
   outline: none;
 }
@@ -47,7 +62,7 @@ label {
 }
 
 @media screen and (min-width: 800px) {
-  .login-form {
+  .form {
     padding: 40px;
     width: 80%;
   }
@@ -58,7 +73,7 @@ label {
 }
 
 @media screen and (min-width: 1000px) {
-  .login-form {
+  .form {
     width: 60%;
   }
 

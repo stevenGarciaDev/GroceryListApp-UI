@@ -1,17 +1,30 @@
 <div class="container">
-  <form class="login-form">
+  <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
     <h2 class="form-title">Login</h2>
-    <div class="form-control">
-      <label>Name</label>
-      <input type="text" name="name" />
-    </div>
+    <div class="form-error">Error Message</div>
     <div class="form-control">
       <label>Email</label>
-      <input type="email" name="email" />
+      <input type="email" name="email" formControlName="email" />
+      <ul *ngIf="email.touched && email.invalid" class="input-error-container">
+        <li *ngIf="email.errors.required" class="error">
+          Field cannot be empty.
+        </li>
+        <li *ngIf="email.errors.email" class="error">
+          Must use a valid email address.
+        </li>
+      </ul>
     </div>
     <div class="form-control">
       <label>Password</label>
-      <input type="password" name="password" />
+      <input type="password" name="password" formControlName="password" />
+      <ul
+        *ngIf="password.touched && password.invalid"
+        class="input-error-container"
+      >
+        <li *ngIf="password.errors.required" class="error">
+          Field cannot be empty.
+        </li>
+      </ul>
     </div>
     <button class="submit-button">Login</button>
   </form>
